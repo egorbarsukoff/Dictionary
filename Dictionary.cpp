@@ -52,7 +52,7 @@ int Dictionary::l_distance(std::string_view s1, std::string_view s2) {
         for (size_t i = 1; i < arr.size(); ++i) {
             arr[i][j] = std::min({arr[i - 1][j] + 1,
                                   arr[i][j - 1] + 1,
-                                  arr[i - 1][j - 1] + (s1[i] != s2[j])});
+                                  arr[i - 1][j - 1] + (s1[i-1] != s2[j-1] ? 1 : 0)});
         }
     }
     return arr.back().back();
